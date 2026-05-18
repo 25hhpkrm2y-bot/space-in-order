@@ -1,13 +1,14 @@
 export default function App() {
   return (
     <main className="site">
-      <section className="hero">
+      <section className="hero upgradedHero">
         <nav className="nav fadeDown">
           <div className="brand">SPACE IN ORDER</div>
 
           <div className="navLinks">
             <a href="#process">Process</a>
             <a href="#services">Services</a>
+            <a href="#transformation">Transformation</a>
             <a href="#contact">Contact</a>
           </div>
         </nav>
@@ -17,40 +18,42 @@ export default function App() {
             <p className="eyebrow">Premium Space Transformation</p>
 
             <h1>
-              Reclaim the space
-              <span> your home forgot.</span>
+              Clear space.
+              <span> Clear mind.</span>
             </h1>
 
             <p className="intro">
-              We transform cluttered garages, lofts and underused spaces into
-              calm, organised and highly functional environments.
+              We transform cluttered garages, lofts and forgotten spaces into
+              calm, organised and highly functional environments designed around
+              the way you live.
             </p>
 
             <div className="actions">
               <a href="#contact" className="primaryBtn">
                 Book Your Reset
               </a>
-              <a href="#process" className="secondaryBtn">
-                See The Process
+              <a href="#transformation" className="secondaryBtn">
+                See Transformation
               </a>
             </div>
           </div>
 
           <div className="heroVisual fadeInSlow">
-            <div className="glassPanel floatSoft">
-              <div className="garageIcon">
-                <div className="roofLine"></div>
-                <div className="garageBody">
-                  <div className="shelves">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                  <div className="floorLine"></div>
-                </div>
+            <div className="premiumVisual floatSoft">
+              <div className="visualTop">
+                <span>Garage Reset</span>
+                <strong>Before → After</strong>
+              </div>
+
+              <div className="storageWall">
+                <div></div><div></div><div></div>
+                <div></div><div></div><div></div>
+                <div></div><div></div><div></div>
+              </div>
+
+              <div className="visualBottom">
+                <p>Organised storage</p>
+                <p>Calm lifestyle space</p>
               </div>
             </div>
           </div>
@@ -59,8 +62,8 @@ export default function App() {
 
       <section className="quietStatement reveal">
         <p>
-          A calm, structured reset for the spaces that quietly create stress in
-          your home.
+          Your garage should not feel like storage overflow. It should feel like
+          part of the home.
         </p>
       </section>
 
@@ -140,24 +143,39 @@ export default function App() {
         </div>
       </section>
 
-      <section className="beforeAfter lightSection">
-        <div className="before revealCard">
-          <span>Before</span>
-          <p>Cluttered. Overwhelming. Unused.</p>
+      <section id="transformation" className="transformationSection">
+        <div className="transformationHeader reveal">
+          <p className="eyebrow">The Transformation</p>
+          <h2>Mess becomes precision. Storage becomes space.</h2>
         </div>
 
-        <div className="after revealCard">
-          <span>After</span>
-          <p>Clear. Calm. Functional.</p>
+        <div className="transformationGrid">
+          <div className="transformationCard beforeTransform revealCard">
+            <span>Before</span>
+            <h3>Cluttered. Heavy. Avoided.</h3>
+            <p>
+              The space becomes a dumping ground — difficult to use, difficult
+              to clean, and mentally draining every time you open the door.
+            </p>
+          </div>
+
+          <div className="transformationCard afterTransform revealCard">
+            <span>After</span>
+            <h3>Clear. Calm. Functional.</h3>
+            <p>
+              Everything has a place. The room works properly again. The home
+              feels lighter because the hidden chaos is gone.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section id="contact" className="cta reveal">
+      <section id="contact" className="cta premiumCta reveal">
         <p className="eyebrow">Start With Photos</p>
-        <h2>Send us your space. We’ll show you what it can become.</h2>
+        <h2>Your home feels different when the chaos disappears.</h2>
         <p>
-          Upload or email 5 photos of your garage, loft or storage space and we
-          will guide you toward the right reset package.
+          Send us 5 photos of your garage, loft or storage space and we will
+          guide you toward the right reset package.
         </p>
 
         <a href="mailto:hello@spaceinorder.co.uk" className="primaryBtn">
@@ -165,9 +183,17 @@ export default function App() {
         </a>
       </section>
 
-      <footer className="footer">
-        <p>SPACE IN ORDER</p>
-        <span>Garage • Home • Lifestyle Spaces</span>
+      <footer className="footer upgradedFooter">
+        <div>
+          <p>SPACE IN ORDER</p>
+          <span>Premium Garage • Home • Lifestyle Space Transformation</span>
+        </div>
+
+        <div className="footerLinks">
+          <a href="#process">Process</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+        </div>
       </footer>
     </main>
   )
