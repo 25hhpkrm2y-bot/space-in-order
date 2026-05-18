@@ -4,6 +4,7 @@ export default function App() {
       <section className="hero">
         <nav className="nav fadeDown">
           <div className="brand">SPACE IN ORDER</div>
+
           <div className="navLinks">
             <a href="#process">Process</a>
             <a href="#services">Services</a>
@@ -26,8 +27,12 @@ export default function App() {
             </p>
 
             <div className="actions">
-              <a href="#contact" className="primaryBtn">Book Your Reset</a>
-              <a href="#process" className="secondaryBtn">See The Process</a>
+              <a href="#contact" className="primaryBtn">
+                Book Your Reset
+              </a>
+              <a href="#process" className="secondaryBtn">
+                See The Process
+              </a>
             </div>
           </div>
 
@@ -37,8 +42,12 @@ export default function App() {
                 <div className="roofLine"></div>
                 <div className="garageBody">
                   <div className="shelves">
-                    <span></span><span></span><span></span>
-                    <span></span><span></span><span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                   </div>
                   <div className="floorLine"></div>
                 </div>
@@ -55,7 +64,7 @@ export default function App() {
         </p>
       </section>
 
-      <section id="process" className="process lightSection">
+      <section id="process" className="process premiumProcess">
         <div className="sectionHeader reveal">
           <p className="eyebrow">Our Method</p>
           <h2>From chaos to calm, in one structured process.</h2>
@@ -63,10 +72,26 @@ export default function App() {
 
         <div className="processGrid">
           {[
-            ["01", "Clear", "We remove what is no longer needed and create breathing room."],
-            ["02", "Organise", "Items are sorted, categorised and given a clear place."],
-            ["03", "Transform", "The space is redesigned to feel clean, usable and calm."],
-            ["04", "Optimise", "Storage systems, shelving and upgrades make it work long term."]
+            [
+              "01",
+              "Assess",
+              "We review the space, understand what needs to stay, what needs to go, and how the space should work.",
+            ],
+            [
+              "02",
+              "Reset",
+              "We clear, sort and restructure the space so it immediately feels lighter, calmer and more usable.",
+            ],
+            [
+              "03",
+              "Optimise",
+              "We introduce smart storage, zones, shelving and systems so everything has a proper place.",
+            ],
+            [
+              "04",
+              "Maintain",
+              "We leave you with a simple structure that is easy to keep clean, organised and stress-free long term.",
+            ],
           ].map(([num, title, text]) => (
             <div className="processCard revealCard" key={title}>
               <span>{num}</span>
@@ -90,10 +115,22 @@ export default function App() {
 
         <div className="serviceGrid">
           {[
-            ["Loft Reset", "Turn overloaded lofts into clean, labelled and usable storage."],
-            ["Storage Systems", "Shelving, cabinets, hooks, boxes and wall-mounted systems."],
-            ["Home Gym Setup", "Clear, prepare and optimise garage gyms and wellness spaces."],
-            ["Lifestyle Spaces", "Utility rooms, workshops, studios and underused home areas."]
+            [
+              "Loft Reset",
+              "Turn overloaded lofts into clean, labelled and usable storage.",
+            ],
+            [
+              "Storage Systems",
+              "Shelving, cabinets, hooks, boxes and wall-mounted systems.",
+            ],
+            [
+              "Home Gym Setup",
+              "Clear, prepare and optimise garage gyms and wellness spaces.",
+            ],
+            [
+              "Lifestyle Spaces",
+              "Utility rooms, workshops, studios and underused home areas.",
+            ],
           ].map(([title, text]) => (
             <div className="serviceCard revealCard" key={title}>
               <h3>{title}</h3>
@@ -108,6 +145,7 @@ export default function App() {
           <span>Before</span>
           <p>Cluttered. Overwhelming. Unused.</p>
         </div>
+
         <div className="after revealCard">
           <span>After</span>
           <p>Clear. Calm. Functional.</p>
@@ -121,6 +159,7 @@ export default function App() {
           Upload or email 5 photos of your garage, loft or storage space and we
           will guide you toward the right reset package.
         </p>
+
         <a href="mailto:hello@spaceinorder.co.uk" className="primaryBtn">
           hello@spaceinorder.co.uk
         </a>
