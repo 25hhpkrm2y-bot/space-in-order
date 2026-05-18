@@ -1,1 +1,247 @@
-<section id="process" className="process premiumProcess">
+/* HERO UPGRADE */
+
+.upgradedHero {
+  overflow: hidden;
+}
+
+.premiumVisual {
+  width: 100%;
+  max-width: 560px;
+  height: 620px;
+  border-radius: 42px;
+  background:
+    radial-gradient(circle at top left, rgba(211,177,121,0.28), transparent 32%),
+    linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.035));
+  border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(24px);
+  box-shadow: 0 45px 130px rgba(0,0,0,0.28);
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.visualTop,
+.visualBottom {
+  display: flex;
+  justify-content: space-between;
+  color: #e8dfcf;
+  font-size: 0.85rem;
+}
+
+.visualTop span,
+.visualBottom p {
+  color: #bdb6aa;
+}
+
+.visualTop strong {
+  color: #d3b179;
+  font-weight: 500;
+}
+
+.storageWall {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.storageWall div {
+  height: 105px;
+  border-radius: 18px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.18), rgba(255,255,255,0.04));
+  border: 1px solid rgba(211,177,121,0.28);
+  box-shadow: inset 0 0 30px rgba(211,177,121,0.04);
+  transition: 0.4s ease;
+}
+
+.storageWall div:hover {
+  transform: translateY(-5px);
+  background: rgba(211,177,121,0.16);
+}
+
+/* TRANSFORMATION SECTION */
+
+.transformationSection {
+  padding: 150px 80px;
+  background:
+    radial-gradient(circle at top right, rgba(211,177,121,0.14), transparent 34%),
+    #111312;
+  color: #f4efe6;
+}
+
+.transformationHeader h2 {
+  font-size: 4rem;
+  max-width: 920px;
+  line-height: 1.05;
+  letter-spacing: -3px;
+  margin-bottom: 70px;
+}
+
+.transformationGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.transformationCard {
+  min-height: 460px;
+  border-radius: 40px;
+  padding: 54px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.transformationCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+.beforeTransform {
+  background: #d8d0c3;
+  color: #171717;
+}
+
+.beforeTransform::before {
+  background:
+    linear-gradient(135deg, rgba(0,0,0,0.10), transparent),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0,0,0,0.06) 0,
+      rgba(0,0,0,0.06) 1px,
+      transparent 1px,
+      transparent 22px
+    );
+}
+
+.afterTransform {
+  background:
+    radial-gradient(circle at top left, rgba(211,177,121,0.26), transparent 36%),
+    #1c1c19;
+  color: #f4efe6;
+}
+
+.afterTransform::before {
+  background:
+    linear-gradient(135deg, rgba(211,177,121,0.16), transparent),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.04) 0,
+      rgba(255,255,255,0.04) 1px,
+      transparent 1px,
+      transparent 28px
+    );
+}
+
+.transformationCard span {
+  color: #b8955f;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 22px;
+  position: relative;
+  z-index: 2;
+}
+
+.transformationCard h3 {
+  font-size: 3rem;
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.transformationCard p {
+  max-width: 560px;
+  line-height: 1.8;
+  color: inherit;
+  opacity: 0.78;
+  position: relative;
+  z-index: 2;
+}
+
+/* CTA UPGRADE */
+
+.premiumCta {
+  background:
+    radial-gradient(circle at top, rgba(211,177,121,0.18), transparent 36%),
+    #f8f4ed;
+}
+
+/* FOOTER UPGRADE */
+
+.upgradedFooter {
+  align-items: center;
+}
+
+.upgradedFooter div p {
+  margin-bottom: 12px;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 28px;
+}
+
+.footerLinks a {
+  color: #bdb6aa;
+  transition: 0.3s ease;
+}
+
+.footerLinks a:hover {
+  color: #d3b179;
+}
+
+/* RESPONSIVE UPGRADE */
+
+@media (max-width: 1100px) {
+  .transformationGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .transformationHeader h2 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .premiumVisual {
+    height: 480px;
+    padding: 24px;
+  }
+
+  .storageWall div {
+    height: 80px;
+  }
+
+  .transformationSection {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .transformationHeader h2 {
+    font-size: 2.3rem;
+    letter-spacing: -1px;
+  }
+
+  .transformationCard {
+    min-height: 360px;
+    padding: 34px;
+  }
+
+  .transformationCard h3 {
+    font-size: 2.2rem;
+  }
+
+  .footerLinks {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
