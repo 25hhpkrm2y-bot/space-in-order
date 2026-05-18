@@ -26,8 +26,6 @@ a {
   width: 100%;
 }
 
-/* ANIMATION */
-
 .fadeUp {
   animation: fadeUp 1.1s ease forwards;
 }
@@ -44,78 +42,34 @@ a {
   animation: floatSoft 6s ease-in-out infinite;
 }
 
-.reveal {
-  animation: reveal linear both;
-  animation-timeline: view();
-  animation-range: entry 10% cover 35%;
-}
-
+.reveal,
 .revealCard {
-  animation: revealCard linear both;
-  animation-timeline: view();
-  animation-range: entry 5% cover 30%;
+  animation: reveal 0.9s ease both;
 }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-18px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes floatSoft {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-14px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
 }
 
 @keyframes reveal {
-  from {
-    opacity: 0;
-    transform: translateY(45px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes revealCard {
-  from {
-    opacity: 0;
-    transform: translateY(55px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(45px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* HERO */
@@ -123,7 +77,6 @@ a {
 .hero {
   min-height: 100vh;
   padding: 40px 80px 80px;
-  position: relative;
   background:
     radial-gradient(circle at top left, rgba(211,177,121,0.16), transparent 28%),
     linear-gradient(135deg, #111312 0%, #1b1d1b 45%, #efe8dc 220%);
@@ -222,10 +175,9 @@ a {
 
 .secondaryBtn:hover {
   background: rgba(255,255,255,0.08);
-  transform: translateY(-2px);
 }
 
-/* VISUAL */
+/* HERO VISUAL */
 
 .heroVisual {
   display: flex;
@@ -254,8 +206,7 @@ a {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at center, rgba(211,177,121,0.24), transparent 62%);
+  background: radial-gradient(circle at center, rgba(211,177,121,0.24), transparent 62%);
 }
 
 .garageIcon {
@@ -311,12 +262,6 @@ a {
   color: #1b1b1b;
 }
 
-/* LIGHT */
-
-.lightSection {
-  background: #eee6d8;
-}
-
 /* PROCESS */
 
 .process {
@@ -368,21 +313,7 @@ a {
   border-radius: 32px;
   border: 1px solid rgba(0,0,0,0.06);
   box-shadow: 0 18px 50px rgba(0,0,0,0.045);
-  transition:
-    transform 0.45s ease,
-    box-shadow 0.45s ease,
-    border-color 0.45s ease,
-    background 0.45s ease;
-}
-
-.processCard::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.22), transparent 60%);
-  opacity: 0;
-  transition: opacity 0.45s ease;
+  transition: 0.45s ease;
 }
 
 .processCard:hover {
@@ -394,10 +325,6 @@ a {
     0 0 40px rgba(211,177,121,0.08);
 }
 
-.processCard:hover::before {
-  opacity: 1;
-}
-
 .processCard span {
   display: inline-block;
   margin-bottom: 18px;
@@ -407,34 +334,14 @@ a {
   font-size: 0.85rem;
 }
 
-.processCard span::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  width: 42px;
-  height: 1px;
-  background: rgba(169,130,70,0.5);
-}
-
 .processCard h3 {
   margin: 22px 0 14px;
   font-size: 1.7rem;
-  transition: transform 0.35s ease;
-}
-
-.processCard:hover h3 {
-  transform: translateX(4px);
 }
 
 .processCard p {
   color: #5f5b54;
   line-height: 1.8;
-  transition: opacity 0.35s ease;
-}
-
-.processCard:hover p {
-  opacity: 0.92;
 }
 
 /* SERVICES */
@@ -491,6 +398,10 @@ a {
 }
 
 /* BEFORE AFTER */
+
+.lightSection {
+  background: #eee6d8;
+}
 
 .beforeAfter {
   padding: 140px 80px;
