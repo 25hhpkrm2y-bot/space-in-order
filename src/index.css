@@ -1,303 +1,375 @@
-# Space In Order — Complete Vite Project Files
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-Create a NEW clean GitHub repository and paste these files exactly.
-
----
-
-# FILE STRUCTURE
-
-```text
-space-in-order/
-├── package.json
-├── vite.config.js
-├── index.html
-└── src/
-    ├── App.jsx
-    ├── main.jsx
-    └── index.css
-```
-
----
-
-# 1. package.json
-
-Create file:
-
-```text
-package.json
-```
-
-Paste:
-
-```json
-{
-  "name": "space-in-order",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.2.0"
-  }
-}
-```
-
----
-
-# 2. vite.config.js
-
-Create file:
-
-```text
-vite.config.js
-```
-
-Paste:
-
-```js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-export default defineConfig({
-  plugins: [react()],
-})
-```
-
----
-
-# 3. index.html
-
-Create file:
-
-```text
-index.html
-```
-
-Paste:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Space In Order</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
-```
-
----
-
-# 4. src/App.jsx
-
-Create folder:
-
-```text
-src
-```
-
-Inside src create:
-
-```text
-App.jsx
-```
-
-Paste:
-
-```jsx
-export default function App() {
-  return (
-    <div className="container">
-      <section className="hero">
-        <h1>SPACE IN ORDER</h1>
-        <p>
-          Premium Garage, Home & Lifestyle Space Transformation
-        </p>
-        <button>Book Your Transformation</button>
-      </section>
-
-      <section className="services">
-        <div className="card">
-          <h2>Garage Resets</h2>
-          <p>
-            Full premium garage organisation with shelving,
-            storage systems and clean layouts.
-          </p>
-        </div>
-
-        <div className="card">
-          <h2>Home Organisation</h2>
-          <p>
-            Scandinavian-inspired organisation systems for modern living.
-          </p>
-        </div>
-
-        <div className="card">
-          <h2>Lifestyle Spaces</h2>
-          <p>
-            Gym setups, utility rooms, storage walls and premium optimisation.
-          </p>
-        </div>
-      </section>
-    </div>
-  )
-}
-```
-
----
-
-# 5. src/main.jsx
-
-Inside src create:
-
-```text
-main.jsx
-```
-
-Paste:
-
-```jsx
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
-```
-
----
-
-# 6. src/index.css
-
-Inside src create:
-
-```text
-index.css
-```
-
-Paste:
-
-```css
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #f5f1ea;
-  color: #1f1f1f;
+html {
+  scroll-behavior: smooth;
 }
 
-.container {
-  min-height: 100vh;
+body {
+  background: #0e0f0f;
+  color: #f5f1e8;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
 }
+
+a {
+  text-decoration: none;
+}
+
+.site {
+  width: 100%;
+}
+
+/* NAV */
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 60px;
+}
+
+.brand {
+  letter-spacing: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.navLinks {
+  display: flex;
+  gap: 30px;
+  color: #a7a39b;
+  font-size: 0.92rem;
+}
+
+/* HERO */
 
 .hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  min-height: 100vh;
+  padding: 50px 80px;
+  position: relative;
+  background:
+    radial-gradient(circle at top left, rgba(198,165,107,0.08), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(255,255,255,0.03), transparent 20%),
+    #0e0f0f;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
-  text-align: center;
-  padding: 20px;
+  gap: 80px;
+  min-height: 80vh;
+}
+
+.heroCopy {
+  max-width: 700px;
+}
+
+.eyebrow {
+  color: #c6a56b;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-bottom: 25px;
 }
 
 .hero h1 {
-  font-size: 5rem;
-  letter-spacing: 8px;
-  margin-bottom: 20px;
+  font-size: 6rem;
+  line-height: 0.95;
+  letter-spacing: -4px;
+  margin-bottom: 30px;
+  font-weight: 600;
 }
 
-.hero p {
-  font-size: 1.3rem;
-  max-width: 700px;
+.hero h1 span {
+  color: #8f8a80;
+}
+
+.intro {
+  color: #b4afa5;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  max-width: 620px;
   margin-bottom: 40px;
 }
 
-.hero button {
-  padding: 18px 40px;
-  border: none;
-  background: #1f1f1f;
-  color: white;
-  cursor: pointer;
-  font-size: 1rem;
-  border-radius: 40px;
+.actions {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
+
+.primaryBtn {
+  background: #c6a56b;
+  color: #111;
+  padding: 18px 30px;
+  border-radius: 100px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+}
+
+.secondaryBtn {
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #f5f1e8;
+  padding: 18px 30px;
+  border-radius: 100px;
+}
+
+/* VISUAL */
+
+.visualCard {
+  height: 620px;
+  border-radius: 40px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.visualCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(198,165,107,0.15), transparent 60%);
+}
+
+.houseLine {
+  width: 320px;
+  position: relative;
+  z-index: 2;
+}
+
+.roof {
+  width: 100%;
+  height: 120px;
+  border-top: 2px solid #c6a56b;
+  border-left: 2px solid #c6a56b;
+  transform: skewY(-25deg);
+}
+
+.room {
+  border: 2px solid #c6a56b;
+  border-top: none;
+  height: 320px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shelf {
+  display: flex;
+  justify-content: space-between;
+}
+
+.shelf span {
+  width: 70px;
+  height: 70px;
+  border: 2px solid #c6a56b;
+}
+
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.boxes i {
+  height: 70px;
+  border: 2px solid #8f8a80;
+  display: block;
+}
+
+.cabinet {
+  height: 80px;
+  border: 2px solid #c6a56b;
+}
+
+/* STATEMENT */
+
+.statement {
+  padding: 120px 80px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.statement p {
+  max-width: 1000px;
+  font-size: 3rem;
+  line-height: 1.2;
+  color: #e6dfd0;
+  letter-spacing: -2px;
+}
+
+/* PROCESS */
+
+.process {
+  padding: 140px 80px;
+}
+
+.sectionHead h2 {
+  font-size: 3.5rem;
+  margin-bottom: 70px;
+  letter-spacing: -2px;
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.processCard {
+  background: #161717;
+  padding: 40px;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.processCard span {
+  color: #c6a56b;
+  font-size: 0.9rem;
+}
+
+.processCard h3 {
+  margin: 25px 0 15px;
+  font-size: 1.6rem;
+}
+
+.processCard p {
+  color: #a7a39b;
+  line-height: 1.7;
+}
+
+/* SERVICES */
 
 .services {
+  padding: 0 80px 140px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  padding: 80px 40px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
 }
 
-.card {
-  background: white;
+.serviceCard {
+  background: #151616;
   padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border-radius: 30px;
+  min-height: 260px;
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
-.card h2 {
+.serviceCard.large {
+  grid-column: span 3;
+  min-height: 320px;
+}
+
+.serviceCard h2 {
+  font-size: 3rem;
+  margin: 20px 0;
+}
+
+.serviceCard h3 {
+  font-size: 1.8rem;
   margin-bottom: 20px;
 }
 
-.card p {
-  line-height: 1.7;
+.serviceCard p {
+  color: #b4afa5;
+  line-height: 1.8;
+  max-width: 700px;
 }
-```
 
----
+/* CTA */
 
-# VERCEL SETTINGS
+.cta {
+  padding: 160px 80px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
 
-When importing into Vercel:
+.cta h2 {
+  font-size: 4rem;
+  max-width: 900px;
+  margin: 0 auto 30px;
+  line-height: 1.1;
+  letter-spacing: -3px;
+}
 
-Application Preset:
+.cta p {
+  color: #b4afa5;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+}
 
-```text
-Vite
-```
+/* RESPONSIVE */
 
-Build Command:
+@media (max-width: 1100px) {
+  .heroGrid,
+  .processGrid,
+  .services {
+    grid-template-columns: 1fr;
+  }
 
-```text
-npm run build
-```
+  .serviceCard.large {
+    grid-column: span 1;
+  }
 
-Install Command:
+  .hero h1 {
+    font-size: 4.5rem;
+  }
 
-```text
-npm install
-```
+  .statement p {
+    font-size: 2rem;
+  }
 
-Output Directory:
+  .cta h2 {
+    font-size: 3rem;
+  }
+}
 
-```text
-dist
-```
+@media (max-width: 768px) {
+  .hero,
+  .process,
+  .services,
+  .statement,
+  .cta {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
 
-Root Directory:
+  .nav {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
 
-```text
-./
-```
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .visualCard {
+    height: 420px;
+  }
+
+  .statement p,
+  .sectionHead h2,
+  .cta h2 {
+    font-size: 2.2rem;
+  }
+}
