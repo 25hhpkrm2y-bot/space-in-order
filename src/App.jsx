@@ -2,7 +2,7 @@ export default function App() {
   return (
     <main className="site">
       <section className="hero">
-        <nav className="nav">
+        <nav className="nav fadeDown">
           <div className="brand">SPACE IN ORDER</div>
           <div className="navLinks">
             <a href="#process">Process</a>
@@ -12,7 +12,7 @@ export default function App() {
         </nav>
 
         <div className="heroGrid">
-          <div className="heroCopy">
+          <div className="heroCopy fadeUp">
             <p className="eyebrow">Premium Space Transformation</p>
 
             <h1>
@@ -31,8 +31,8 @@ export default function App() {
             </div>
           </div>
 
-          <div className="heroVisual">
-            <div className="glassPanel">
+          <div className="heroVisual fadeInSlow">
+            <div className="glassPanel floatSoft">
               <div className="garageIcon">
                 <div className="roofLine"></div>
                 <div className="garageBody">
@@ -48,15 +48,15 @@ export default function App() {
         </div>
       </section>
 
-      <section className="quietStatement">
+      <section className="quietStatement reveal">
         <p>
           A calm, structured reset for the spaces that quietly create stress in
           your home.
         </p>
       </section>
 
-      <section id="process" className="process">
-        <div className="sectionHeader">
+      <section id="process" className="process lightSection">
+        <div className="sectionHeader reveal">
           <p className="eyebrow">Our Method</p>
           <h2>From chaos to calm, in one structured process.</h2>
         </div>
@@ -68,7 +68,7 @@ export default function App() {
             ["03", "Transform", "The space is redesigned to feel clean, usable and calm."],
             ["04", "Optimise", "Storage systems, shelving and upgrades make it work long term."]
           ].map(([num, title, text]) => (
-            <div className="processCard" key={title}>
+            <div className="processCard revealCard" key={title}>
               <span>{num}</span>
               <h3>{title}</h3>
               <p>{text}</p>
@@ -78,7 +78,7 @@ export default function App() {
       </section>
 
       <section id="services" className="services">
-        <div className="serviceFeature">
+        <div className="serviceFeature reveal">
           <p className="eyebrow">Primary Service</p>
           <h2>Garage Reset</h2>
           <p>
@@ -95,7 +95,7 @@ export default function App() {
             ["Home Gym Setup", "Clear, prepare and optimise garage gyms and wellness spaces."],
             ["Lifestyle Spaces", "Utility rooms, workshops, studios and underused home areas."]
           ].map(([title, text]) => (
-            <div className="serviceCard" key={title}>
+            <div className="serviceCard revealCard" key={title}>
               <h3>{title}</h3>
               <p>{text}</p>
             </div>
@@ -103,18 +103,18 @@ export default function App() {
         </div>
       </section>
 
-      <section className="beforeAfter">
-        <div className="before">
+      <section className="beforeAfter lightSection">
+        <div className="before revealCard">
           <span>Before</span>
           <p>Cluttered. Overwhelming. Unused.</p>
         </div>
-        <div className="after">
+        <div className="after revealCard">
           <span>After</span>
           <p>Clear. Calm. Functional.</p>
         </div>
       </section>
 
-      <section id="contact" className="cta">
+      <section id="contact" className="cta reveal">
         <p className="eyebrow">Start With Photos</p>
         <h2>Send us your space. We’ll show you what it can become.</h2>
         <p>
