@@ -1,97 +1,138 @@
-/* PREMIUM PROCESS UPGRADE */
+export default function App() {
+  return (
+    <main className="site">
+      <section className="hero">
+        <nav className="nav fadeDown">
+          <div className="brand">SPACE IN ORDER</div>
 
-.premiumProcess {
-  position: relative;
-  overflow: hidden;
-}
+          <div className="navLinks">
+            <a href="#process">Process</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </nav>
 
-.premiumProcess::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at top right,
-    rgba(211,177,121,0.12),
-    transparent 32%);
-  pointer-events: none;
-}
+        <div className="heroGrid">
+          <div className="heroCopy fadeUp">
+            <p className="eyebrow">Premium Space Transformation</p>
 
-.processGrid {
-  position: relative;
-  z-index: 2;
-}
+            <h1>
+              Clear space.
+              <span> Clear mind.</span>
+            </h1>
 
-.processCard {
-  position: relative;
-  overflow: hidden;
-  transition:
-    transform 0.45s ease,
-    box-shadow 0.45s ease,
-    border-color 0.45s ease,
-    background 0.45s ease;
-}
+            <p className="intro">
+              We transform cluttered garages, lofts and underused spaces into
+              calm, organised and highly functional environments.
+            </p>
 
-.processCard::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,0.18),
-      transparent 60%
-    );
-  opacity: 0;
-  transition: opacity 0.45s ease;
-}
+            <div className="actions">
+              <a href="#contact" className="primaryBtn">Book Your Reset</a>
+              <a href="#process" className="secondaryBtn">See The Process</a>
+            </div>
+          </div>
 
-.processCard:hover {
-  transform:
-    translateY(-10px)
-    scale(1.02);
+          <div className="heroVisual fadeInSlow">
+            <div className="glassPanel floatSoft">
+              <div className="garageIcon">
+                <div className="roofLine"></div>
+                <div className="garageBody">
+                  <div className="shelves">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                  </div>
+                  <div className="floorLine"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  background: rgba(255,255,255,0.82);
+      <section className="quietStatement reveal">
+        <p>
+          Your garage should not feel like storage overflow. It should feel like
+          part of the home.
+        </p>
+      </section>
 
-  border-color: rgba(211,177,121,0.28);
+      <section id="process" className="process premiumProcess">
+        <div className="sectionHeader reveal">
+          <p className="eyebrow">Our Method</p>
+          <h2>From chaos to calm, in one structured process.</h2>
+        </div>
 
-  box-shadow:
-    0 30px 80px rgba(0,0,0,0.08),
-    0 0 40px rgba(211,177,121,0.08);
-}
+        <div className="processGrid">
+          {[
+            ["01", "Assess", "We review the space, understand what needs to stay, what needs to go, and how the space should work."],
+            ["02", "Reset", "We clear, sort and restructure the space so it immediately feels lighter, calmer and more usable."],
+            ["03", "Optimise", "We introduce smart storage, zones, shelving and systems so everything has a proper place."],
+            ["04", "Maintain", "We leave you with a simple structure that is easy to keep clean, organised and stress-free long term."]
+          ].map(([num, title, text]) => (
+            <div className="processCard revealCard" key={title}>
+              <span>{num}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-.processCard:hover::before {
-  opacity: 1;
-}
+      <section id="services" className="services">
+        <div className="serviceFeature reveal">
+          <p className="eyebrow">Primary Service</p>
+          <h2>Garage Reset</h2>
+          <p>
+            A premium transformation service for cluttered garages — combining
+            clearing, sorting, deep cleaning, organisation and optional storage
+            installations.
+          </p>
+        </div>
 
-.processCard span {
-  display: inline-block;
-  margin-bottom: 18px;
-  letter-spacing: 3px;
-  position: relative;
-}
+        <div className="serviceGrid">
+          {[
+            ["Loft Reset", "Turn overloaded lofts into clean, labelled and usable storage."],
+            ["Storage Systems", "Shelving, cabinets, hooks, boxes and wall-mounted systems."],
+            ["Home Gym Setup", "Clear, prepare and optimise garage gyms and wellness spaces."],
+            ["Lifestyle Spaces", "Utility rooms, workshops, studios and underused home areas."]
+          ].map(([title, text]) => (
+            <div className="serviceCard revealCard" key={title}>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-.processCard span::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  width: 42px;
-  height: 1px;
-  background: rgba(169,130,70,0.5);
-}
+      <section className="beforeAfter lightSection">
+        <div className="before revealCard">
+          <span>Before</span>
+          <p>Cluttered. Overwhelming. Unused.</p>
+        </div>
 
-.processCard h3 {
-  transition: transform 0.35s ease;
-}
+        <div className="after revealCard">
+          <span>After</span>
+          <p>Clear. Calm. Functional.</p>
+        </div>
+      </section>
 
-.processCard:hover h3 {
-  transform: translateX(4px);
-}
+      <section id="contact" className="cta reveal">
+        <p className="eyebrow">Start With Photos</p>
+        <h2>Your home feels different when the chaos disappears.</h2>
+        <p>
+          Send us 5 photos of your garage, loft or storage space and we will
+          guide you toward the right reset package.
+        </p>
 
-.processCard p {
-  transition: opacity 0.35s ease;
-}
+        <a href="mailto:hello@spaceinorder.co.uk" className="primaryBtn">
+          hello@spaceinorder.co.uk
+        </a>
+      </section>
 
-.processCard:hover p {
-  opacity: 0.92;
+      <footer className="footer">
+        <p>SPACE IN ORDER</p>
+        <span>Garage • Home • Lifestyle Spaces</span>
+      </footer>
+    </main>
+  )
 }
