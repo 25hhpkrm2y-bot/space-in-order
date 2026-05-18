@@ -5,9 +5,9 @@ export default function App() {
         <nav className="nav">
           <div className="brand">SPACE IN ORDER</div>
           <div className="navLinks">
-            <span>Garage</span>
-            <span>Home</span>
-            <span>Contact</span>
+            <a href="#process">Process</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
           </div>
         </nav>
 
@@ -21,7 +21,7 @@ export default function App() {
             </h1>
 
             <p className="intro">
-              We transform cluttered garages, lofts and lifestyle spaces into
+              We transform cluttered garages, lofts and underused spaces into
               calm, organised and highly functional environments.
             </p>
 
@@ -31,42 +31,42 @@ export default function App() {
             </div>
           </div>
 
-          <div className="visualCard">
-            <div className="houseLine">
-              <div className="roof"></div>
-              <div className="room">
-                <div className="shelf">
-                  <span></span><span></span><span></span>
+          <div className="heroVisual">
+            <div className="glassPanel">
+              <div className="garageIcon">
+                <div className="roofLine"></div>
+                <div className="garageBody">
+                  <div className="shelves">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                  </div>
+                  <div className="floorLine"></div>
                 </div>
-                <div className="boxes">
-                  <i></i><i></i><i></i><i></i>
-                </div>
-                <div className="cabinet"></div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="statement">
+      <section className="quietStatement">
         <p>
-          Not clearance. Not cleaning. A complete reset of how your space feels,
-          functions and supports your daily life.
+          A calm, structured reset for the spaces that quietly create stress in
+          your home.
         </p>
       </section>
 
       <section id="process" className="process">
-        <div className="sectionHead">
-          <p className="eyebrow">The Method</p>
-          <h2>Clear. Organise. Transform. Optimise.</h2>
+        <div className="sectionHeader">
+          <p className="eyebrow">Our Method</p>
+          <h2>From chaos to calm, in one structured process.</h2>
         </div>
 
         <div className="processGrid">
           {[
-            ['01', 'Clear', 'We remove what you do not need and create breathing room.'],
-            ['02', 'Organise', 'Every item receives a considered place and purpose.'],
-            ['03', 'Transform', 'The space is redesigned into a calm, usable environment.'],
-            ['04', 'Optimise', 'Storage systems, shelving and upgrades make it work long term.'],
+            ["01", "Clear", "We remove what is no longer needed and create breathing room."],
+            ["02", "Organise", "Items are sorted, categorised and given a clear place."],
+            ["03", "Transform", "The space is redesigned to feel clean, usable and calm."],
+            ["04", "Optimise", "Storage systems, shelving and upgrades make it work long term."]
           ].map(([num, title, text]) => (
             <div className="processCard" key={title}>
               <span>{num}</span>
@@ -77,43 +77,59 @@ export default function App() {
         </div>
       </section>
 
-      <section className="services">
-        <div className="serviceCard large">
+      <section id="services" className="services">
+        <div className="serviceFeature">
           <p className="eyebrow">Primary Service</p>
           <h2>Garage Reset</h2>
           <p>
-            A premium one-day transformation for cluttered garages, including
-            clearing, sorting, cleaning, organising and optional storage systems.
+            A premium transformation service for cluttered garages — combining
+            clearing, sorting, deep cleaning, organisation and optional storage
+            installations.
           </p>
         </div>
 
-        <div className="serviceCard">
-          <h3>Lofts</h3>
-          <p>Clear, categorise and create usable storage systems.</p>
+        <div className="serviceGrid">
+          {[
+            ["Loft Reset", "Turn overloaded lofts into clean, labelled and usable storage."],
+            ["Storage Systems", "Shelving, cabinets, hooks, boxes and wall-mounted systems."],
+            ["Home Gym Setup", "Clear, prepare and optimise garage gyms and wellness spaces."],
+            ["Lifestyle Spaces", "Utility rooms, workshops, studios and underused home areas."]
+          ].map(([title, text]) => (
+            <div className="serviceCard" key={title}>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
+          ))}
         </div>
+      </section>
 
-        <div className="serviceCard">
-          <h3>Home Gyms</h3>
-          <p>Garage-to-gym layouts, flooring, storage and equipment placement.</p>
+      <section className="beforeAfter">
+        <div className="before">
+          <span>Before</span>
+          <p>Cluttered. Overwhelming. Unused.</p>
         </div>
-
-        <div className="serviceCard">
-          <h3>Storage Walls</h3>
-          <p>Wall systems, shelving, hooks, cabinets and smart storage.</p>
+        <div className="after">
+          <span>After</span>
+          <p>Clear. Calm. Functional.</p>
         </div>
       </section>
 
       <section id="contact" className="cta">
         <p className="eyebrow">Start With Photos</p>
-        <h2>Upload your space. We’ll show you what it can become.</h2>
+        <h2>Send us your space. We’ll show you what it can become.</h2>
         <p>
-          Send 5 photos of your garage, loft or storage space and receive a
-          simple starting estimate.
+          Upload or email 5 photos of your garage, loft or storage space and we
+          will guide you toward the right reset package.
         </p>
-        <a className="primaryBtn" href="mailto:hello@spaceinorder.co.uk">
+        <a href="mailto:hello@spaceinorder.co.uk" className="primaryBtn">
           hello@spaceinorder.co.uk
         </a>
       </section>
+
+      <footer className="footer">
+        <p>SPACE IN ORDER</p>
+        <span>Garage • Home • Lifestyle Spaces</span>
+      </footer>
     </main>
   )
 }
