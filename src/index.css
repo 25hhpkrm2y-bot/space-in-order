@@ -1,0 +1,303 @@
+# Space In Order — Complete Vite Project Files
+
+Create a NEW clean GitHub repository and paste these files exactly.
+
+---
+
+# FILE STRUCTURE
+
+```text
+space-in-order/
+├── package.json
+├── vite.config.js
+├── index.html
+└── src/
+    ├── App.jsx
+    ├── main.jsx
+    └── index.css
+```
+
+---
+
+# 1. package.json
+
+Create file:
+
+```text
+package.json
+```
+
+Paste:
+
+```json
+{
+  "name": "space-in-order",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.2.0"
+  }
+}
+```
+
+---
+
+# 2. vite.config.js
+
+Create file:
+
+```text
+vite.config.js
+```
+
+Paste:
+
+```js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+})
+```
+
+---
+
+# 3. index.html
+
+Create file:
+
+```text
+index.html
+```
+
+Paste:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space In Order</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+```
+
+---
+
+# 4. src/App.jsx
+
+Create folder:
+
+```text
+src
+```
+
+Inside src create:
+
+```text
+App.jsx
+```
+
+Paste:
+
+```jsx
+export default function App() {
+  return (
+    <div className="container">
+      <section className="hero">
+        <h1>SPACE IN ORDER</h1>
+        <p>
+          Premium Garage, Home & Lifestyle Space Transformation
+        </p>
+        <button>Book Your Transformation</button>
+      </section>
+
+      <section className="services">
+        <div className="card">
+          <h2>Garage Resets</h2>
+          <p>
+            Full premium garage organisation with shelving,
+            storage systems and clean layouts.
+          </p>
+        </div>
+
+        <div className="card">
+          <h2>Home Organisation</h2>
+          <p>
+            Scandinavian-inspired organisation systems for modern living.
+          </p>
+        </div>
+
+        <div className="card">
+          <h2>Lifestyle Spaces</h2>
+          <p>
+            Gym setups, utility rooms, storage walls and premium optimisation.
+          </p>
+        </div>
+      </section>
+    </div>
+  )
+}
+```
+
+---
+
+# 5. src/main.jsx
+
+Inside src create:
+
+```text
+main.jsx
+```
+
+Paste:
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import './index.css'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
+```
+
+---
+
+# 6. src/index.css
+
+Inside src create:
+
+```text
+index.css
+```
+
+Paste:
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f1ea;
+  color: #1f1f1f;
+}
+
+.container {
+  min-height: 100vh;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 5rem;
+  letter-spacing: 8px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  max-width: 700px;
+  margin-bottom: 40px;
+}
+
+.hero button {
+  padding: 18px 40px;
+  border: none;
+  background: #1f1f1f;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 40px;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 80px 40px;
+}
+
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  margin-bottom: 20px;
+}
+
+.card p {
+  line-height: 1.7;
+}
+```
+
+---
+
+# VERCEL SETTINGS
+
+When importing into Vercel:
+
+Application Preset:
+
+```text
+Vite
+```
+
+Build Command:
+
+```text
+npm run build
+```
+
+Install Command:
+
+```text
+npm install
+```
+
+Output Directory:
+
+```text
+dist
+```
+
+Root Directory:
+
+```text
+./
+```
