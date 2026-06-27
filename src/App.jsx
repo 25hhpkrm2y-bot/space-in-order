@@ -109,16 +109,21 @@ const Reveal = forwardRef(function Reveal({ children, className = '', id }, ref)
 });
 
 /* Mounts a lazy-loaded 3D scene once its section scrolls near the viewport.
-   Decorative only (aria-hidden) — never affects layout, content or SEO. */
-function SceneLayer({ targetRef, Scene, className, minWidth = 0 }) {
-  const active = useLazyScene(targetRef, { minWidth });
+   Decorative only (aria-hidden) — never affects layout, content or SEO.
+   Runs on every viewport width, including mobile — density just tells the
+   scene to render a lighter version (fewer objects, lower pixel ratio,
+   slower easing) rather than skipping the effect outright. */
+function SceneLayer({ targetRef, Scene, className }) {
+  const active = useLazyScene(targetRef);
 
   if (!active) return null;
+
+  const density = window.innerWidth < 700 ? 'compact' : 'full';
 
   return (
     <div className={className} aria-hidden="true">
       <Suspense fallback={null}>
-        <Scene containerRef={targetRef} />
+        <Scene containerRef={targetRef} density={density} />
       </Suspense>
     </div>
   );
@@ -422,7 +427,7 @@ function App() {
       </Reveal>
 
       <Reveal ref={processRef} className="process shell" id="process">
-        <SceneLayer targetRef={processRef} Scene={ProcessScene} className="process-canvas" minWidth={900} />
+        <SceneLayer targetRef={processRef} Scene={ProcessScene} className="process-canvas" />
         <div className="sticky-process">
           <div className="process-title">
             <p className="eyebrow">Our Process</p>
@@ -482,7 +487,7 @@ function App() {
       </Reveal>
 
       <Reveal ref={packagesRef} className="packages shell" id="packages">
-        <SceneLayer targetRef={packagesRef} Scene={PackagesScene} className="packages-canvas" minWidth={900} />
+        <SceneLayer targetRef={packagesRef} Scene={PackagesScene} className="packages-canvas" />
         <div className="section-intro intro-left">
           <p className="eyebrow">Packages</p>
           <h2>Three levels of reset.</h2>

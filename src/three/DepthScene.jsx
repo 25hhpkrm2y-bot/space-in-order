@@ -27,11 +27,13 @@ function Layer({ containerRef, depth, color, opacity, y0 }) {
   );
 }
 
-export default function DepthScene({ containerRef }) {
+export default function DepthScene({ containerRef, density = 'full' }) {
+  const compact = density === 'compact';
+
   return (
     <Canvas
-      dpr={[1, 1.5]}
-      gl={{ antialias: true, alpha: true, powerPreference: 'low-power' }}
+      dpr={compact ? 1 : [1, 1.5]}
+      gl={{ antialias: !compact, alpha: true, powerPreference: 'low-power' }}
       camera={{ position: [0, 0, 5], fov: 40 }}
       style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
     >

@@ -1,32 +1,20 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useReducedMotion } from 'framer-motion';
 
 /**
- * Gates mounting of a 3D scene behind: prefers-reduced-motion, a minimum
- * viewport width (skip on small/low-power devices), and IntersectionObserver
- * visibility (don't pay for WebGL contexts the user hasn't scrolled to yet).
- * Once active it stays mounted — sections are cheap enough not to need teardown.
+ * Gates mounting of a 3D scene behind prefers-reduced-motion and
+ * IntersectionObserver visibility (don't pay for a WebGL context the user
+ * hasn't scrolled to yet). Runs on every viewport width — callers render a
+ * lighter "compact" variant on narrow screens instead of skipping outright.
+ * Once active it stays mounted — these scenes are cheap enough not to need
+ * teardown.
  */
-export function useLazyScene(targetRef, { minWidth = 0 } = {}) {
+export function useLazyScene(targetRef) {
   const reduceMotion = useReducedMotion();
-  const [wideEnough, setWideEnough] = useState(() => !minWidth || window.innerWidth >= minWidth);
   const [visible, setVisible] = useState(false);
 
-  // Track viewport width live so resizing/rotating a device re-evaluates the gate,
-  // rather than freezing whatever width happened to exist at first mount.
   useEffect(() => {
-    if (!minWidth) return;
-
-    function onResize() {
-      setWideEnough(window.innerWidth >= minWidth);
-    }
-
-    window.addEventListener('resize', onResize, { passive: true });
-    return () => window.removeEventListener('resize', onResize);
-  }, [minWidth]);
-
-  useEffect(() => {
-    if (reduceMotion || !wideEnough) return;
+    if (reduceMotion) return;
 
     const el = targetRef.current;
     if (!el) return;
@@ -43,7 +31,7 @@ export function useLazyScene(targetRef, { minWidth = 0 } = {}) {
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [reduceMotion, wideEnough, targetRef]);
+  }, [reduceMotion, targetRef]);
 
-  return !reduceMotion && wideEnough && visible;
+  return !reduceMotion && visible;
 }

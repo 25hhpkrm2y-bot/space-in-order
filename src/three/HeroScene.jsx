@@ -37,6 +37,24 @@ const slatCluster = {
   target: { pos: [4.55, 0.1, -3.2], rot: [0, 0, 0] }
 };
 
+/* A portrait phone has a much narrower horizontal field of view than desktop
+   (perspective fov is vertical; horizontal shrinks with aspect ratio), so the
+   desktop modules' x positions (2.6–5.35) sit entirely outside the frustum on
+   mobile. These are authored separately, kept close to center-x and spread
+   vertically instead, where portrait screens actually have room to spare. */
+const compactModules = [
+  {
+    size: [0.85, 0.6, 0.5],
+    start: { pos: [0.95, 2.55, -3], rot: [0.3, 0.4, 0.1] },
+    target: { pos: [0.55, 1.75, -3], rot: [0, 0, 0] }
+  },
+  {
+    size: [0.6, 0.55, 0.45],
+    start: { pos: [-0.95, -2.35, -3.2], rot: [-0.25, -0.3, 0.15] },
+    target: { pos: [-0.5, -1.65, -3], rot: [0, 0, 0] }
+  }
+];
+
 function lerp(a, b, t) {
   return a + (b - a) * t;
 }
@@ -46,14 +64,15 @@ function lerpVec(a, b, t) {
 }
 
 /* Scroll-linked alignment progress (0 = scattered, 1 = perfectly ordered),
-   eased toward target each frame so the motion stays calm and continuous. */
-function useAlignProgress() {
+   eased toward target each frame so the motion stays calm and continuous.
+   Compact (mobile) eases a touch slower — calmer on a smaller screen. */
+function useAlignProgress(ease) {
   const progress = useRef(0);
 
   useFrame(() => {
     const max = (window.innerHeight || 1) * 1.1;
     const target = Math.min(Math.max(window.scrollY / max, 0), 1);
-    progress.current += (target - progress.current) * 0.035;
+    progress.current += (target - progress.current) * ease;
   });
 
   return progress;
@@ -102,24 +121,27 @@ function SlatPanel({ progressRef }) {
 }
 
 function Rig({ density }) {
-  const progressRef = useAlignProgress();
-  const modules = density === 'full' ? frameModules : frameModules.slice(0, 2);
+  const compact = density === 'compact';
+  const progressRef = useAlignProgress(compact ? 0.024 : 0.035);
+  const modules = compact ? compactModules : frameModules;
 
   return (
     <>
       {modules.map((module, index) => (
         <Frame key={index} {...module} progressRef={progressRef} />
       ))}
-      {density === 'full' && <SlatPanel progressRef={progressRef} />}
+      {!compact && <SlatPanel progressRef={progressRef} />}
     </>
   );
 }
 
 export default function HeroScene({ density = 'full' }) {
+  const compact = density === 'compact';
+
   return (
     <Canvas
-      dpr={[1, 1.5]}
-      gl={{ antialias: true, alpha: true, powerPreference: 'low-power' }}
+      dpr={compact ? 1 : [1, 1.5]}
+      gl={{ antialias: !compact, alpha: true, powerPreference: 'low-power' }}
       camera={{ position: [0, 0, 6], fov: 36 }}
       style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
     >

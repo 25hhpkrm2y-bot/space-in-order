@@ -69,13 +69,22 @@ function Plank({ frames, color, progressRef }) {
   );
 }
 
-function Rig({ containerRef }) {
+const planks = [
+  { frames: keyframes[0], color: palette.stone },
+  { frames: keyframes[1], color: palette.bronze },
+  { frames: keyframes[2], color: palette.gold },
+  { frames: keyframes[3], color: palette.charcoal }
+];
+
+function Rig({ containerRef, density }) {
+  const compact = density === 'compact';
   const progressRef = useRef(0);
   const group = useRef();
+  const visiblePlanks = compact ? planks.slice(0, 2) : planks;
 
   useFrame(() => {
     const target = sectionProgress(containerRef.current);
-    progressRef.current += (target - progressRef.current) * 0.08;
+    progressRef.current += (target - progressRef.current) * (compact ? 0.06 : 0.08);
     if (group.current) {
       group.current.rotation.y = progressRef.current * 0.22;
     }
@@ -83,24 +92,25 @@ function Rig({ containerRef }) {
 
   return (
     <group ref={group}>
-      <Plank frames={keyframes[0]} color={palette.stone} progressRef={progressRef} />
-      <Plank frames={keyframes[1]} color={palette.bronze} progressRef={progressRef} />
-      <Plank frames={keyframes[2]} color={palette.gold} progressRef={progressRef} />
-      <Plank frames={keyframes[3]} color={palette.charcoal} progressRef={progressRef} />
+      {visiblePlanks.map((plank, index) => (
+        <Plank key={index} frames={plank.frames} color={plank.color} progressRef={progressRef} />
+      ))}
     </group>
   );
 }
 
-export default function ProcessScene({ containerRef }) {
+export default function ProcessScene({ containerRef, density = 'full' }) {
+  const compact = density === 'compact';
+
   return (
     <Canvas
-      dpr={[1, 1.5]}
-      gl={{ antialias: true, alpha: true, powerPreference: 'low-power' }}
+      dpr={compact ? 1 : [1, 1.5]}
+      gl={{ antialias: !compact, alpha: true, powerPreference: 'low-power' }}
       camera={{ position: [0, 0, 6], fov: 36 }}
       style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
     >
       <Suspense fallback={null}>
-        <Rig containerRef={containerRef} />
+        <Rig containerRef={containerRef} density={density} />
       </Suspense>
     </Canvas>
   );
